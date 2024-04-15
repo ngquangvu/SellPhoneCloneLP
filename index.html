@@ -16,7 +16,9 @@
       <section class="section_sale common_width">
         <div class="section_sale_wrapper">
           <div class="section_sale_title">
-            <img src="./images/hot-sale.gif" alt="Hot sale" />
+            <img src="./images/hot-sale_2.gif" alt="Hot sale" />
+
+            <div id="saleCountDown" class="section_sale_title_count_down"></div>
           </div>
           <div class="section_sale_content">
             <div class="swiper-container">
@@ -158,20 +160,73 @@
     ];
 
     $(document).ready(function () {
+      // Create countdown
+      var endTime = new Date('04/30/2024 10:1 AM');
+      createCountDown(endTime);
+
+      // Create products HTML
+      createProducts();
+    });
+
+
+    // ================== Create countdown ==================
+    function createCountDown(endTime) {
+     countDownTimer(endTime, 'saleCountDown');
+    }
+
+    function countDownTimer(dt, id) {
+      var end = new Date(dt);
+      var _second = 1000;
+      var _minute = _second * 60;
+      var _hour = _minute * 60;
+      var _day = _hour * 24;
+      var timer;
+      function showRemaining() {
+        var now = new Date();
+        var distance = end - now;
+        if (distance < 0) {
+          clearInterval(timer);
+          document.getElementById(id).innerHTML = 'EXPIRED!';
+
+          return;
+        }
+        var days = Math.floor(distance / _day);
+        var hours = Math.floor((distance % _day) / _hour);
+        var minutes = Math.floor((distance % _hour) / _minute);
+        var seconds = Math.floor((distance % _minute) / _second);
+
+        if (String(hours).length < 2) {
+          hours = 0 + String(hours);
+        }
+        if (String(minutes).length < 2) {
+          minutes = 0 + String(minutes);
+        }
+        if (String(seconds).length < 2) {
+          seconds = 0 + String(seconds);
+        }
+        var dateStr = '<div class="countdown_wrapper">Kết thúc sau: ' + `<div class="rounded">${days}</div>` + ' : ' + `<div class="rounded">${hours}</div>` + ' : ' + `<div class="rounded">${minutes}</div>` + ' : ' + `<div class="rounded">${seconds}</div>` + '</div>';
+        document.getElementById(id).innerHTML = dateStr;
+      }
+
+      timer = setInterval(showRemaining, 1000);
+    }
+
+    // ================== Create products ==================
+    function createProducts() {
       var swiperItemsHtml = '';
       products.forEach((product) => {
         const productHTML = createProductHTML(product);
         swiperItemsHtml += productHTML;
       });
       $('#swiperWrapper').html(swiperItemsHtml);
-    });
+    }
 
     function createProductHTML(product) {
       return `
         <li class="swiper-slide card">
           <div class="card_wrapper">
             <div class="card_badge">
-              <div class="card_badge_left"><div>Giảm ${Math.round(100 - (product.price * 100 / product.oldPrice))}%</div></div>
+              <div class="card_badge_left"><div>Giảm ${Math.round(100 - (product.price * 100) / product.oldPrice)}%</div></div>
               <div class="card_badge_right">Trả góp ${product.payOff}%</div>
             </div>
             <a class="card_top" href="#">
