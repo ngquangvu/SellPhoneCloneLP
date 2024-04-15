@@ -168,10 +168,9 @@
       createProducts();
     });
 
-
     // ================== Create countdown ==================
     function createCountDown(endTime) {
-     countDownTimer(endTime, 'saleCountDown');
+      countDownTimer(endTime, 'saleCountDown');
     }
 
     function countDownTimer(dt, id) {
@@ -204,7 +203,7 @@
         if (String(seconds).length < 2) {
           seconds = 0 + String(seconds);
         }
-        var dateStr = '<div class="countdown_wrapper">Kết thúc sau: ' + `<div class="rounded">${days}</div>` + ' : ' + `<div class="rounded">${hours}</div>` + ' : ' + `<div class="rounded">${minutes}</div>` + ' : ' + `<div class="rounded">${seconds}</div>` + '</div>';
+        var dateStr = '<div class="countdown_wrapper">Kết thúc sau: ' + `<div class="rounded"><span>${days}</span></div>` + ' : ' + `<div class="rounded"><span>${hours}</span></div>` + ' : ' + `<div class="rounded"><span>${minutes}</span></div>` + ' : ' + `<div class="rounded"><span>${seconds}</span></div>` + '</div>';
         document.getElementById(id).innerHTML = dateStr;
       }
 
