@@ -247,6 +247,16 @@ main {
   margin-right: 4px;
 }
 
+
+@media only screen and (max-width: 860px) {
+  .section_sale_title {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+  }
+}
+
+
 @media only screen and (max-width: 500px) {
   .card_mid > div {
     flex-direction: column;
@@ -258,3 +268,5 @@ main {
     padding: 7px 7px;
   }
 }
+
+
