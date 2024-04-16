@@ -270,7 +270,25 @@ main {
     align-items: start;
   }
 
+  .card {
+    max-height: 280px;
+  }
+
+  .card .card_top > img {
+    max-height: 145px;
+  }
+
+  .card .card_top > h3 {
+    margin-top: 3px;
+    margin-bottom: 10px;
+  }
+
   .card_badge_left {
-    padding: 7px 7px;
+    font-size: 13px;
+    padding: 7px 12px 12px;
+  }
+
+  .card_badge_right {
+    padding: 5px 6px;
   }
 }
