@@ -292,3 +292,34 @@ main {
     padding: 5px 6px;
   }
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  background: #fff;
+  color: #333 !important;
+  fill: #333 !important;
+  stroke: #333 !important;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+  opacity: 0.8;
+  top: 50%;
+  padding: 7px 3px;
+  transition: 0.3s;
+}
+
+.swiper-button-next {
+  border-radius: 100px 0 0 100px;
+}
+
+.swiper-button-prev {
+  border-radius: 0 100px 100px 0;
+}
+
+.swiper-button-next::after {
+  font-size: 1.4rem !important;
+  margin-left: 10px;
+}
+
+.swiper-button-prev::after {
+  font-size: 1.4rem !important;
+  margin-right: 10px;
+}
