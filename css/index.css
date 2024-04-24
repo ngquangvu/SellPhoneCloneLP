@@ -114,7 +114,7 @@ main {
   position: relative;
   width: 100%;
   height: fit-content;
-  max-height: 330px;
+  max-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -270,9 +270,6 @@ main {
     align-items: start;
   }
 
-  .card {
-    max-height: 280px;
-  }
 
   .card .card_top > img {
     max-height: 145px;
